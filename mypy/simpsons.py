@@ -1,6 +1,8 @@
 import sys
 
-def people_and_places("name"):
+def people_and_places(tup):
+    name = tup[0]
+    home = tup[1]
 
 
     if name == 'Lisa':
@@ -14,13 +16,16 @@ def people_and_places("name"):
     elif name == 'Dennis':
         print(name + " lives in Philly. alright alright alright.")
     else: 
-        print(name + " lives in Springfield")
+        print(name + " lives in " + home)
 
-    return print("doh")
+    return print(home * 3 + "!")
 
 
 if __name__ == '__main__':
-    arg = sys.argv[1:]
-    
-    for arg in args:
+    args = sys.argv[1:]
+#    args_srt = [(args[0],args[1]), (args[2],args[3])]
+    args_srt = [args_srt.append((args[i], args[i + 1])) for i in args]
+
+    print(args_srt)
+    for arg in args_srt:        
         people_and_places(arg)
