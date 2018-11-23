@@ -43,13 +43,13 @@ class Band(object):
 
         members = self.wages.keys()
 
-        print("Band members:")
+        print("\nBand members:")
         for member in members:
              print(member)
 
     def sack(self, member):
         self.wages.pop(member)
-        print(member + " has been sacked")
+        print("***** " + member + " has been sacked *****")
 
-    def promote(self, member, new_wage)
-        
+    def promote(self, member, payrise):
+        self.wages[member] = self.wages[member] + payrise

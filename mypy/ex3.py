@@ -1,0 +1,40 @@
+import netCDF4 as nc
+
+ds = nc.Dataset("example_data/ggas2014121200_00-18.nc")
+
+print(ds.file_format)
+print(list(ds.variables.keys()))
+
+sst = ds.variables["SSTK"]
+print(sst)
+
+for d in sst.dimensions:
+    print(d, len(ds.variables[d]))
+
+print(sst.shape, sst.size)
+
+for a in sst.ncattrs():
+    print(a)
+
+
+arr = sst[1, 0, 10:20, 30:35]
+print(type(arr))
+
+dims = list(sst.dimensions)
+print(dims)
+
+vars = ds.variables
+arr_time = vars["time"][1]
+arr_level = vars["surface"][0]
+arr_lats = vars["latitude"][10:20]
+arr_lons = vars["longitude"][30:35]
+
+for vals in (arr_time, arr_level, arr_lats, arr_lons):
+    print(vals)
+
+metadata = {}
+
+for a in sst.ncattrs():
+    metadata[a] = getattr(sst, a)
+
+print(metadata)
