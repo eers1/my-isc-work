@@ -36,3 +36,5 @@ metadata = {}
 
 for a in sst.ncattrs():
     metadata[a] = getattr(sst, a)
+
+print(metadata)
